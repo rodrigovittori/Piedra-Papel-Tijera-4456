@@ -1,7 +1,7 @@
 """
 Primera Actividad Módulo 3: Proyecto - Piedra-Papel-Tijeras
 
-Versión: 0.3.0
+Versión: 0.4.0
 -------------------------------------
 
 REGLAS:
@@ -34,6 +34,9 @@ Paso Nº 3: Pedir al Jugador su elección (piedra, papel o tijera)
         > Si el valor NO es válido, lo solicitamos nuevamente
         > En cambio, si es válido, convertimos ese valor a su equivalente en texto:
             > 1: "Piedra" / 2: "Tijeras" / 3: "Papel"
+
+Paso Nº 4: Generamos con random.randint(1-3) la respuesta de la computadora y la almacenamos en una nueva variable
+           llamada opcion_compu; luego, la reemplazamos por el texto equivalente
 """
 
 import time
@@ -59,6 +62,11 @@ while (seguir_jugando):
     while ((opcion_jugador <= 0) or (opcion_jugador > 3)):
         opcion_jugador = int(input("\n Que eliges? \n (1) Piedra (2) Tijeras (3) Papel \n >"))
 
+    """ > Paso Nº 2: Calcular la elección de nuestro bot / IA """
+    opcion_compu = random.randint(1, 3)
+    ronda_actual += 1
+
+    """ > Paso Nº 3: Configuramos el texto """
     
     if (opcion_jugador == 1):
         opcion_jugador = "Piedra"
@@ -71,7 +79,24 @@ while (seguir_jugando):
         
     else:
         opcion_jugador = "VALOR NO VALIDO"
+
+    # COMPU    
         
+    if (opcion_compu == 1):
+        opcion_compu = "Piedra"
+            
+    elif (opcion_compu == 2):
+        opcion_compu = "Tijeras"
+            
+    elif (opcion_compu == 3):
+        opcion_compu = "Papel"
+        
+    else:
+        opcion_compu = "VALOR NO VALIDO"
+
+    """ * Lugar para insertar suspenso* """
+    print("JUGADOR: ", opcion_jugador)
+    print("COMPU: ", opcion_compu)
     
     # Paso Final: PREGUNTAMOS SI QUIERE SEGUIR JUGANDO
     
